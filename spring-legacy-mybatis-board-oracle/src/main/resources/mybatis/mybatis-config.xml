@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
+<configuration><!-- 마이바티스 '구성(환경설정)'을 의미함. -->
 	<settings>
-		<setting name="cacheEnabled" value="true"/>
-		<setting name="mapUnderscoreToCamelCase" value="true" />
-		<setting name="defaultFetchSize" value="100" />
-		<setting name="defaultStatementTimeout" value="30" />
+		<setting name="cacheEnabled" value="true"/><!-- 설정에서 각 매퍼에 설정된 캐시를 전역적으로 사용할지 말지에 대한 여부 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/> <!-- mapUnderscoreToCamelCase 속성은 언더바(_)로 구분되는 데이터베이스 컬럼 명과 낙타 표기 형식을 따른 자바 프로퍼티를 자동 매핑할지 여부를 지정한다. 기본 설정은 비활성(false) 상태이다.-->
+		<setting name="defaultFetchSize" value="100" /><!-- 조회결과를 가져올때 가져올 데이터 크기를 제어하는 용도로 드라이버에 힌트를 설정 이 파라미터값은 쿼리 설정으로 변경할 수 있다. -->
+		<setting name="defaultStatementTimeout" value="30" /><!-- 	데이터베이스로의 응답을 얼마나 오래 기다릴지를 판단하는 타임아웃을 설정 -->
 	</settings>
-
+	
 	<typeAliases>
 		<package name="com.example.board.model" />
 		<package name="com.example.user.model" />
-	</typeAliases>
+	</typeAliases>	
 </configuration>

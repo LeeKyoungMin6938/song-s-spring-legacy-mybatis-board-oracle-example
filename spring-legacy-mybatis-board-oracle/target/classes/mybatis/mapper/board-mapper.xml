@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.board.repository.BoardMapper">
-	
-	<resultMap type="Board" id="boardResultMap">
+	<resultMap type="Board" id="boardResultMap"> <!-- type=Board.java --> <!-- 데이터베이스 결과데이터를 객체에 로드하는 방법을 정의하는 엘리먼트 -->
 		<result property="id" column="ID" />
 		<result property="writer" column="WRITER" />
 		<result property="title" column="TITLE" />
@@ -15,11 +14,9 @@
 		INSERT INTO xboard(id, writer, title, content, reg_date, hit_count)
 		VALUES(XBOARD_SEQ.NEXTVAL, #{writer}, #{title}, #{content}, SYSDATE, 0)
 	</insert>
-	
 	<update id="update" parameterType="Board">
 		UPDATE xboard SET title=#{title}, content=#{content} WHERE id=#{id}
 	</update>
-	
 	<delete id="delete" parameterType="long">
 		DELETE FROM xboard WHERE id=#{id}
 	</delete>
@@ -27,8 +24,6 @@
 	<select id="selectById" parameterType="long" resultMap="boardResultMap">
 		SELECT * FROM xboard WHERE id=#{id}
 	</select>
-	
-	
 	<select id="selectByLimit" resultType="Board">
 		<bind name="start" value="@com.example.board.dto.Pager@seekStart(page, size)"/>
 		<bind name="end" value="@com.example.board.dto.Pager@seekEnd(page, size)"/>
@@ -42,5 +37,4 @@
 	<update id="increment">
 		UPDATE xboard SET hit_count=hit_count+1 WHERE id=#{id} and writer!=#{requester}
 	</update>
-	
 </mapper>

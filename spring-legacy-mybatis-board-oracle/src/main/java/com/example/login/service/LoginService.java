@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.login.dto.Login;
 import com.example.user.model.User;
+import com.example.user.repository.UserMapper;
 
 @Service
 public class LoginService {

@@ -21,8 +21,16 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.example.web" />
+	<context:component-scan base-package="com.example" />
 	
-	
+	<interceptors> <!-- 말그대로 spring 의 controller 호출전에 동작하는 방식으로써 보통은 로그인 체크유무가 필요한 곳에서 주로 사용함 -->
+		<interceptor>
+			<mapping path="/boards/view/**" />
+			<mapping path="/boards/write/**" />
+			<mapping path="/boards/update/**" />
+			<mapping path="/boards/delete/**" />
+			<beans:bean class="com.example.web.interceptor.LoginInterceptor" />
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.login.dto.Login;
 import com.example.login.service.LoginService;
+import com.example.user.model.User;
 
 @Controller
 public class LoginController {
