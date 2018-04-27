@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.aop.AOPMapper">
+	<resultMap type="AOPModel" id="aopResultMap">
+		<result property="stdname" column="STDNAME"/>
+		<result property="pointcut" column="POINTCUT"/>
+		<result property="elapsedtime" column="ELAPSEDTIME"/>
+	</resultMap>
+	<insert id="insert" parameterType="Board">
+		INSERT INTO AOPTABLE (stdname, pointcut, elapsedtime ) VALUES(#{stdname}, #{pointcut}, #{elapsedtime})
+	</insert>
+</mapper>
